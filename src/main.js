@@ -17,8 +17,6 @@ const history = syncHistoryWithStore(browserHistory, store, {
 });
 const routes = require('./routes').default(store);
 
-// console.log(routes); // eslint-disable-line
-
 const MOUNT_ELEMENT = document.getElementById('app');
 
 render(
