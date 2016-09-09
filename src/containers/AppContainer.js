@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Router } from 'react-router';
 import { Provider } from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class AppContainer extends Component {
 
@@ -15,9 +16,11 @@ class AppContainer extends Component {
 
     return (
       <Provider store={store}>
-        <div>
-          <Router history={history} children={routes} />
-        </div>
+        <MuiThemeProvider>
+          <div>
+            <Router history={history} children={routes} />
+          </div>
+        </MuiThemeProvider>
       </Provider>
     );
   }

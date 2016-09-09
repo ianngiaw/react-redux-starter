@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class HomeView extends Component {
+class MyRouteView extends Component {
   render() {
     return (
       <div>
-        Home!
+        My Route!
       </div>
     );
   }
 }
 
-export default HomeView;
+export default MyRouteView;

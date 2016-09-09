@@ -1,18 +1,14 @@
-import 'bulma/css/bulma.css';
-
 import React from 'react';
 import { render } from 'react-dom';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
-import { useRouterHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import createStore from './store/createStore';
 import AppContainer from './containers/AppContainer';
 
-const browserHistory = useRouterHistory(createBrowserHistory)({
-  basename: '/'
-});
-const store = createStore({}, browserHistory);
-const history = syncHistoryWithStore(browserHistory, store, {
+import './styles/main.scss';
+
+const store = createStore({}, hashHistory);
+const history = syncHistoryWithStore(hashHistory, store, {
   selectLocationState: (state) => state.router
 });
 const routes = require('./routes').default(store);

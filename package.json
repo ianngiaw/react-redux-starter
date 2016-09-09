@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
+    "dist": "NODE_ENV=production node node_modules/webpack/bin/webpack.js",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,10 +15,10 @@
   "dependencies": {
     "babel-core": "^6.13.2",
     "babel-loader": "^6.2.4",
-    "bulma": "^0.1.2",
-    "history": "^2.0.0",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
+    "material-ui": "^0.15.4",
+    "react": "^15.3.1",
+    "react-bootstrap": "^0.30.3",
+    "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
     "react-router-redux": "^4.0.5",

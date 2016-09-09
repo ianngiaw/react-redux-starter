@@ -1,15 +1,15 @@
 import MainLayout from '../components/MainLayout/MainLayout';
-import HomeRoute from './Home';
-import HomeView from './Home/components/HomeView';
+import HomeContainer from './home/containers/HomeContainer';
+import MyRoute from './my_route';
 
 const createRoutes = store => ({
   path: '/',
   component: MainLayout,
   indexRoute: {
-    component: HomeView
+    component: HomeContainer
   },
   childRoutes: [
-    HomeRoute(store)
+    MyRoute(store)
   ]
 });
 
