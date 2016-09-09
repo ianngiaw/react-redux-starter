@@ -6,6 +6,8 @@ const path = require('path');
 module.exports = {
   entry: [
     'babel-polyfill',
+    'webpack-dev-server/client?http://0.0.0.0:8080',
+    'webpack/hot/only-dev-server',
     './src/main.js'
   ],
   output: {
@@ -48,10 +50,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'stage-0', 'react']
-        }
+        loaders: ['react-hot', 'babel-loader']
       },{
         test: /\.css$/,
         loader: "style-loader!css-loader"
