@@ -12,7 +12,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'assets',
+    publicPath: 'http://localhost:8080/assets/',
     filename: 'app.js'
   },
   plugins: [
