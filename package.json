@@ -1,0 +1,32 @@
+{
+  "name": "react-redux-starter",
+  "version": "2.0.0",
+  "description": "React-Redux starter with redux-observable, flowtype and react-router-v4",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianngiaw/react-redux-starter.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "redux-observable",
+    "flowtype",
+    "react-router-v4"
+  ],
+  "author": "Ian Ngiaw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ianngiaw/react-redux-starter/issues"
+  },
+  "homepage": "https://github.com/ianngiaw/react-redux-starter#readme",
+  "dependencies": {
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.16.1"
+  }
+}
