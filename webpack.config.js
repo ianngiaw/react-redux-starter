@@ -24,6 +24,12 @@ const configs = {
       inject: 'body'
     })
   ],
+  resolve: {
+    alias: {
+      rootDir: path.resolve(__dirname, 'src')
+    },
+    extensions: [ '', '.js' ]
+  },
   module: {
     preLoaders: [
       {
