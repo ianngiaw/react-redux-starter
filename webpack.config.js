@@ -7,6 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const configs = {
   entry: [
+    'babel-polyfill',    
+    'react-hot-loader/patch',
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
     path.join(__dirname, '/src/app.js')
@@ -18,42 +20,50 @@ const configs = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.template.ejs',
       inject: 'body'
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        eslint: {
+          failOnWarning: true,
+          failOnError: true,
+          configFile: path.join(__dirname, '.eslintrc.json')
+        }
+      }
     })
   ],
-  resolve: {
-    alias: {
-      rootDir: path.resolve(__dirname, 'src')
-    },
-    extensions: [ '', '.js' ]
-  },
   module: {
-    preLoaders: [
+    rules: [
       {
-        test: /\.(js|jsx)$/,
-        include: path.resolve(__dirname, 'src'),
-        exclude: /(node_modules|bower_components)/,
-        loader: 'eslint?parser=babel-eslint'
-      }
-    ],
-    loaders: [
-      {
+        enforce: 'pre',
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel'
+        loader: 'eslint-loader'
       },
       {
-        test: /\.css$/,
-        loader: "style!css"
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader'
       },
       {
         test: /\.scss$/,
-        loader: "style!css?modules!sass"
-      }
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ]
+      },
     ]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    publicPath: '/',
+    hot: true,
+    port: 8080
   }
 };
 
